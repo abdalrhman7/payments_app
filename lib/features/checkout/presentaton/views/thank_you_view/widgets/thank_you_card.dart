@@ -17,47 +17,33 @@ class ThankYouCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Colors.blueAccent,
-            Colors.purple,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        color: Colors.grey[350],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 66, left: 12, right: 12),
+        padding: const EdgeInsets.only(top: 50 + 16, left: 22, right: 22),
         child: Column(
           children: [
-            Text('Thank You!',
-                style: Styles.style25.copyWith(color: Colors.white)),
-            Text(
-              'Your Transaction Was Successful',
-              style: Styles.style20.copyWith(color: Colors.white),
+            const Text(
+              'Thank you!',
               textAlign: TextAlign.center,
+              style: Styles.style25,
+            ),
+            Text(
+              'Your transaction was successful',
+              textAlign: TextAlign.center,
+              style: Styles.style20,
             ),
             const SizedBox(height: 42),
-            const PaymentItemInfo(
-              title: 'Data',
-              value: '01/24/2024',
-            ),
+            const PaymentItemInfo(title: 'Data', value: '01/24/2023'),
             const SizedBox(height: 20),
-            const PaymentItemInfo(
-              title: 'Time',
-              value: '11.15 AM',
-            ),
+            const PaymentItemInfo(title: 'Time', value: '10:15 AM'),
             const SizedBox(height: 20),
-            const PaymentItemInfo(
-              title: 'To',
-              value: 'Sam Louis',
-            ),
-            const Divider(thickness: 2, height: 60),
-            const TotalPrice(
-                title: 'Total', value: r'$50.97', color: Colors.white),
+            const PaymentItemInfo(title: 'To', value: 'Sam Louis'),
+            const Divider(height: 60, thickness: 2),
+            const TotalPrice(title: 'Total', value: r'$50.97'),
             const SizedBox(height: 30),
             const CardInfoWidget(),
             const Spacer(),
@@ -69,32 +55,33 @@ class ThankYouCard extends StatelessWidget {
                   size: 64,
                 ),
                 Container(
-                  alignment: Alignment.center,
                   width: 113,
                   height: 58,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
-                        width: 1.50,
-                        color: Color(0xFF34A853),
-                      ),
+                          width: 1.50, color: Color(0xFF34A853)),
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  child: Text(
-                    'PAID',
-                    style:
-                        Styles.style24.copyWith(color: const Color(0xFF34A853)),
+                  child: Center(
+                    child: Text(
+                      'PAID',
+                      textAlign: TextAlign.center,
+                      style: Styles.style24
+                          .copyWith(color: const Color(0xFF34A853)),
+                    ),
                   ),
                 )
               ],
             ),
             SizedBox(
-              height: ((MediaQuery.sizeOf(context).height * .2 + 20) /2) -29,
-            )
+                height:
+                ((MediaQuery.sizeOf(context).height * .2 + 20) / 2) - 29),
           ],
         ),
       ),
     );
   }
 }
+

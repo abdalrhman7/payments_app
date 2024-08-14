@@ -13,8 +13,8 @@ class PaymentItemInfo extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title , style: Styles.styleBold18.copyWith(color: Colors.white),),
-        Text(value , style: Styles.styleBold18.copyWith(color: Colors.white),),
+        Text(title , style: Styles.styleBold18,),
+        Text(value , style: Styles.styleBold18,),
       ],
     );
   }

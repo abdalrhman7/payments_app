@@ -8,6 +8,7 @@ class ThankYouView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: Colors.grey.shade100,
       appBar: buildAppBar(),
       body: Transform.translate(
           offset: const Offset(0, -12),
