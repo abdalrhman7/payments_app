@@ -4,6 +4,6 @@ abstract class Failure {
   Failure({required this.errMessage});
 }
 
-abstract class ServiceFailure extends Failure {
+class ServiceFailure extends Failure {
   ServiceFailure({required super.errMessage});
 }
