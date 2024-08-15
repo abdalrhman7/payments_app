@@ -10,7 +10,7 @@ class PaymentMethodBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.symmetric(vertical: 16 , horizontal: 8),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

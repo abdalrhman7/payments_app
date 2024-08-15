@@ -21,6 +21,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   dartz: ^0.10.1
   flutter_paypal_payment: ^1.0.6
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:

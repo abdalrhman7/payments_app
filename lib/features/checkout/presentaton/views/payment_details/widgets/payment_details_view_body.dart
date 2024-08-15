@@ -22,9 +22,6 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        const SliverToBoxAdapter(
-          child: PaymentMethodListView(),
-        ),
         SliverToBoxAdapter(
           child: CustomCreditCard(
             formKey: _formKey,
@@ -40,15 +37,13 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
               child: CustomButton(
                 text: 'Payment',
                 onTap: () {
-                  // if(_formKey.currentState!.validate()){
-                  //   _formKey.currentState!.save();
-                  //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ThankYouViewBody(),));
-                  // }else{
-                  //   autoValidateMode = AutovalidateMode.always;
-                  //   setState(() {});
-                  // }
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ThankYouView(),));
-
+                  if(_formKey.currentState!.validate()){
+                    _formKey.currentState!.save();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ThankYouViewBody(),));
+                  }else{
+                    autoValidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
                 },
               ),
             ),

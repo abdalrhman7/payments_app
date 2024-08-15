@@ -19,6 +19,7 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
     const PaymentMethodeModel(image: 'assets/images/card.svg', title: 'stripe'),
     const PaymentMethodeModel(image: 'assets/images/paypal.svg', title: 'paypal'),
     const PaymentMethodeModel(image: '', title: 'PayMop'),
+    const PaymentMethodeModel(image: '', title: 'Custom'),
   ];
 
   int activeIndex = 0;
@@ -30,7 +31,7 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
-          padding:const  EdgeInsets.symmetric(horizontal: 8),
+          padding:const  EdgeInsets.symmetric(horizontal: 2),
           child: GestureDetector(
             onTap: () {
               activeIndex = index;
@@ -38,9 +39,9 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
               setState(() {});
             },
             child: PaymentMethodItem(
-              image: paymentMethode[index].image,
+              paymentMethodeModel: paymentMethode[index],
               isActive: activeIndex == index,
-              isImage: paymentMethode[index].title != 'PayMop',
+              isImage: paymentMethode[index].image != '',
             ),
           ),
         ),

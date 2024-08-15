@@ -9,6 +9,8 @@ import 'package:payment_integration/features/checkout/data/model/payment_intent_
 import 'package:payment_integration/features/checkout/data/model/paypal_model/amount_model.dart';
 import 'package:payment_integration/features/checkout/data/model/paypal_model/item_list_model.dart';
 import 'package:payment_integration/features/checkout/presentaton/manger/cubit/payment_cubit.dart';
+import 'package:payment_integration/features/checkout/presentaton/views/payment_details/payment_details.dart';
+import 'package:payment_integration/features/checkout/presentaton/views/paymop/paymop_view.dart';
 import 'package:payment_integration/features/checkout/presentaton/views/thank_you_view/thank_you_view.dart';
 
 class CustomButtonBlocConsumer extends StatelessWidget {
@@ -49,9 +51,22 @@ class CustomButtonBlocConsumer extends StatelessWidget {
                 customerId: 'cus_OvTlnS3BNlO7eF',
               );
               BlocProvider.of<PaymentCubit>(context).makePayment(paymentIntentInputModel: paymentIntentInputModel);
-            }else{
+            }else if(BlocProvider.of<PaymentCubit>(context).selectedPaymentMethod == 'paypal'){
               var transactionData = getTransactionData();
               executePaypalPayment(context, transactionData);
+            }else if(BlocProvider.of<PaymentCubit>(context).selectedPaymentMethod == 'Custom'){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const PaymentDetailsView(),
+                ),
+              );
+            }
+            else{
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const PayMopView(),
+                ),
+              );
             }
           },
         );
@@ -78,6 +93,12 @@ class CustomButtonBlocConsumer extends StatelessWidget {
           onSuccess: (Map params) async {
             log("onSuccess: $params");
             Navigator.pop(context);
+            Navigator.pop(context);
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) => const ThankYouView(),
+              ),
+            );
           },
           onError: (error) {
             log("onError: $error");

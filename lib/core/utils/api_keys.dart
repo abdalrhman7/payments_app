@@ -7,4 +7,7 @@ class ApiKeys {
 
   static String paypalClientId = 'AXG9Wa3VtWwVBUupv3iyCNm8yI1qetfZkhvfy4oZGrMZL75ngSZfYXF3Ffsey_kuU1ysZdrYsl9NKf1f';
   static String paypalSecretKey = 'EF6lxINyMOhl2JXU0tEUK8qoW2_8UjNMIPqW5hirEWPhrWdEA0aM8EpdJrzIs2w1K1xhf7W4pMkC5T2o';
+  static String payMopApiKey = 'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2T0RjeE5UTTJMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkueFRGV2tabkxaZGFMUHNzamxyLXlhV3pRclZMOUJuOUdfRXBpZE9EbjgtUTU4b192T2FZOWNkdkFXQjlpak1aY0RYME84RmtDbnZQN1I3R08tem1yUFE=';
+  static String payMopIntegrationId = '4077354';
+
 }
