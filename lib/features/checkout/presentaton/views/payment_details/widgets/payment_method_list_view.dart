@@ -27,7 +27,7 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 62,
+      height: 68,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(

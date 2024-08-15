@@ -19,7 +19,7 @@ class PaymentMethodItem extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 400),
       width: 103,
-      height: 62,
+      height: 66,
       decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side: BorderSide(
@@ -32,7 +32,7 @@ class PaymentMethodItem extends StatelessWidget {
             BoxShadow(
               color: isActive ? const Color(0xFF34A853) : Colors.white,
               offset: const Offset(0, 0),
-              blurRadius: 6,
+              blurRadius: 2,
               spreadRadius: 0,
             )
           ]),
