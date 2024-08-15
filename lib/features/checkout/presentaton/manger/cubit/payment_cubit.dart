@@ -10,6 +10,7 @@ class PaymentCubit extends Cubit<PaymentState> {
   PaymentCubit(this.checkoutRepo) : super(PaymentInitial());
 
   final CheckoutRepo checkoutRepo;
+  String selectedPaymentMethod = 'stripe';
 
   Future makePayment({
     required PaymentIntentInputModel paymentIntentInputModel,

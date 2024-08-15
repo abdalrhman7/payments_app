@@ -22,7 +22,6 @@ class StripeService {
       contentType: Headers.formUrlEncodedContentType,
     );
     var paymentIntentModel = PaymentIntentModel.fromJson(response.data);
-    print('${paymentIntentModel.clientSecret}++++++++++++');
     return paymentIntentModel;
   }
 
@@ -38,7 +37,6 @@ class StripeService {
   //   return paymentIntentModel;
   // }
 
-
   Future initPaymentSheet(
       {required InitPaymentSheetInputModel initPaymentSheetInputModel}) async {
     await Stripe.instance.initPaymentSheet(
@@ -46,14 +44,14 @@ class StripeService {
         paymentIntentClientSecret: initPaymentSheetInputModel.clientSecret,
         customerId: initPaymentSheetInputModel.customerId,
         customerEphemeralKeySecret:
-        initPaymentSheetInputModel.ephemeralKeySecret,
+            initPaymentSheetInputModel.ephemeralKeySecret,
         merchantDisplayName: 'Nopy',
       ),
     );
   }
 
   Future displayPaymentSheet() async {
-   await Stripe.instance.presentPaymentSheet();
+    await Stripe.instance.presentPaymentSheet();
   }
 
   Future makePayment(
@@ -62,9 +60,10 @@ class StripeService {
     var ephemeraKeyModel = await createEphemeralKey(
         customerId: paymentIntentInputModel.customerId);
     var initPaymentSheetInputModel = InitPaymentSheetInputModel(
-        clientSecret: paymentIntentModel.clientSecret!,
-        customerId: paymentIntentModel.customer,
-        ephemeralKeySecret: ephemeraKeyModel.secret!);
+      clientSecret: paymentIntentModel.clientSecret!,
+      customerId: paymentIntentModel.customer,
+      ephemeralKeySecret: ephemeraKeyModel.secret!,
+    );
     await initPaymentSheet(
         initPaymentSheetInputModel: initPaymentSheetInputModel);
     await displayPaymentSheet();

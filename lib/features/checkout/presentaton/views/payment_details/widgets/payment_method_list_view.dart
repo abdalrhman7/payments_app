@@ -1,6 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_integration/features/checkout/data/model/payment_methode_model.dart';
+import 'package:payment_integration/features/checkout/presentaton/manger/cubit/payment_cubit.dart';
 import 'package:payment_integration/features/checkout/presentaton/views/payment_details/widgets/payment_method_item.dart';
 
 class PaymentMethodListView extends StatefulWidget {
@@ -11,10 +14,11 @@ class PaymentMethodListView extends StatefulWidget {
 }
 
 class _PaymentMethodListViewState extends State<PaymentMethodListView> {
-  final List<String> images = const [
-    'assets/images/card.svg',
-    'assets/images/paypal.svg',
-    'PayMop'
+
+  final List<PaymentMethodeModel> paymentMethode = [
+    const PaymentMethodeModel(image: 'assets/images/card.svg', title: 'stripe'),
+    const PaymentMethodeModel(image: 'assets/images/paypal.svg', title: 'paypal'),
+    const PaymentMethodeModel(image: '', title: 'PayMop'),
   ];
 
   int activeIndex = 0;
@@ -30,18 +34,20 @@ class _PaymentMethodListViewState extends State<PaymentMethodListView> {
           child: GestureDetector(
             onTap: () {
               activeIndex = index;
+              BlocProvider.of<PaymentCubit>(context).selectedPaymentMethod = paymentMethode[index].title;
               setState(() {});
             },
             child: PaymentMethodItem(
-              image: images[index],
+              image: paymentMethode[index].image,
               isActive: activeIndex == index,
-              isImage: images[index] != 'PayMop',
+              isImage: paymentMethode[index].title != 'PayMop',
             ),
           ),
         ),
-        itemCount: images.length,
+        itemCount: paymentMethode.length,
         shrinkWrap: true,
       ),
     );
   }
 }
+
